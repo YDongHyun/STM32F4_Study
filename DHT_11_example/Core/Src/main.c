@@ -229,8 +229,10 @@ int main(void)
   	  	         tFahrenheit = tCelsius * 9/5 + 32;
   	  	         RH = (float)RHI + (float)(RHD/10.0);
   	  	         // Can use tCelsius, tFahrenheit and RH for any purposes
-  	  	         sprintf((char *)buffer, "temp : %d\r\nhumi : %d\r\n", TCI,RHI);
+  	  	         sprintf((char *)buffer, "%.2f %.2f\r\n",tCelsius,tFahrenheit);
   	  	         HAL_UART_Transmit(&huart1, buffer, strlen((char *)buffer), 100);
+  	  	         HAL_UART_Transmit(&huart3, buffer, strlen((char *)buffer), 100);
+
   	  	         HAL_Delay(1000);
   	  	       }
 
